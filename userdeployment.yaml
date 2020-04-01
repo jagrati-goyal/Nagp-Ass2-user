@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nagp-user-deployment
+  labels:
+    app: nagp-user
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nagp-user
+  template:
+    metadata:
+      labels:
+        app: nagp-user
+    spec: 
+      containers:
+      - name: nagp-user
+        image: jagratigoyal/user
+        ports:
+        - containerPort: 8080
